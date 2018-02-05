@@ -1,8 +1,8 @@
-This is a minimal testcase of Rust issue [#48002](https://github.com/rust-lang/rust/issues/48002)
+This is a minimal testcase of [Rust MessagePack](https://github.com/3Hren/msgpack-rust) issue [#160](https://github.com/3Hren/msgpack-rust/issues/160)
 
 To run it in docker run:
 
-    docker run -v$(pwd):/wasm-map-bug:ro masonforest/wasm-map-bug  rustc +nightly -C opt-level=1 --target wasm32-unknown-unknown --crate-type=cdylib -o wasm-map-bug.wasm wasm-map-bug/src/lib.rs && node run.js
+    docker run -w/rmp-wasm-map-bug -v$(pwd):/rmp-wasm-map-bug masonforest/rmp-wasm-map-bug cargo +nightly rustc --target wasm32-unknown-unknown --lib -- -O && node run.js
 
 Or to run it locally run:
 
@@ -17,6 +17,4 @@ The expected output is:
 The actual output is:
 
     Pointer to five points to: 5
-    Pointer to six points to: 3612
-
-
+    Pointer to six points to: 2310

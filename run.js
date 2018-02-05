@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 async function run() {
-  file = fs.readFileSync("wasm-map-bug.wasm");
+  file = fs.readFileSync("target/wasm32-unknown-unknown/debug/rmp_wasm_map_bug.wasm");
   var {instance} = await WebAssembly.instantiate(file, {env: {}});
   var outputPtr = instance.exports.pointer_to_five();
   var output = new Uint32Array(instance.exports.memory.buffer, outputPtr, 1);
