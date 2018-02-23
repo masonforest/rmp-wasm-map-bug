@@ -1,13 +1,8 @@
 This is a minimal testcase of [Rust MessagePack](https://github.com/3Hren/msgpack-rust) issue [#160](https://github.com/3Hren/msgpack-rust/issues/160)
 
-To run it in docker run:
+Run:
 
-    docker run -w/rmp-wasm-map-bug -v$(pwd):/rmp-wasm-map-bug masonforest/rmp-wasm-map-bug cargo +nightly rustc --target wasm32-unknown-unknown --lib -- -O && node run.js
-
-Or to run it locally run:
-
-    rustc +nightly -C opt-level=1 --target wasm32-unknown-unknown --crate-type=cdylib -o wasm-map-bug.wasm src/lib.rs && node run.js
-
+    cargo  rustc --verbose --target wasm32-unknown-unknown --lib -- -O && node run.js
 
 The expected output is:
 
